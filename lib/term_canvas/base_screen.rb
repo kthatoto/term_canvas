@@ -6,6 +6,7 @@ class BaseScreen
     Curses.init_screen
     Curses::noecho
     Curses.curs_set(0)
+    Curses.stdscr.nodelay = 1
   end
 
   def close
