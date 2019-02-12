@@ -10,6 +10,8 @@ class TermCanvas
     @y = y
     @width = w
     @height = h
+    @texts = []
+    @rects = []
   end
 
   def << self
@@ -35,10 +37,18 @@ class TermCanvas
     @win.height / 2 + @win.height % 2
   end
 
-  def text
+  def text(x:, y:, body:, background_color:, text_color:)
+    @texts << {
+      x: x, y: y, body: body,
+      background_color: background_color, text_color: text_color,
+    }
   end
 
-  def rect
+  def rect(x:, y:, width:, height:, background_color:)
+    @rects << {
+      x: x, y: y, width: width, height: height,
+      background_color: background_color,
+    }
   end
 
   def update
