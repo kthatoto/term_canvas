@@ -14,7 +14,7 @@ class TermCanvas
     @rects = []
   end
 
-  def << self
+  class << self
     def gets
       Curses.getch
     end
