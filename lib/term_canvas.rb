@@ -51,7 +51,7 @@ class TermCanvas
     }
   end
 
-  def update
+  def draw
   end
 
   private
