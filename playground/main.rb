@@ -42,7 +42,7 @@ loop do
         end
       end
     end
-    main_field.draw
+    main_field.update
   end
 end
 
