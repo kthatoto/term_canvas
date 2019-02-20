@@ -37,10 +37,10 @@ class TermCanvas
     @win.height / 2 + @win.height % 2
   end
 
-  def text(x:, y:, body:, background_color:, text_color:)
+  def text(x:, y:, body:, foreground_color:, background_color:)
     @texts << {
       x: x, y: y, body: body,
-      background_color: background_color, text_color: text_color,
+      background_color: background_color, foreground_color: foreground_color,
     }
   end
 
@@ -52,12 +52,20 @@ class TermCanvas
   end
 
   def draw
+    @texts.each do |text|
+      color_pair = BaseScreen.instance.find_or_create_color_pair(
+        foreground_color: text[:foreground_color],
+        background_color: text[:background_color]
+      )
+      @win.setpos(text[:y], text[:x])
+      @win.attron(color_pair[:id])
+      @win.addstr(text[:body])
+      @win.attroff(color_pair[:id])
+    end
   end
 
   module Color
-    GREEN = [   0, 1000,    0]
-    BLUE  = [   0,    0, 1000]
-    RED   = [1000,    0,    0]
+    include BaseScreen::Color
   end
 
   private
