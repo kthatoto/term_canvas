@@ -47,7 +47,7 @@ class BaseScreen
     new_id = @color_pairs.count
     Curses.init_pair(new_id, foreground_color || 0, background_color)
     new_color_pair = {id: new_id, foreground_color: foreground_color, background_color: background_color}
-    @color_pair << new_color_pair
+    @color_pairs << new_color_pair
     return new_color_pair
   end
 end
