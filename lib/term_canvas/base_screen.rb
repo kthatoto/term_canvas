@@ -44,7 +44,7 @@ class BaseScreen
 
   private
   def create_color_pair(background_color, foreground_color = nil)
-    new_id = @color_pair.count
+    new_id = @color_pairs.count
     Curses.init_pair(new_id, foreground_color || 0, background_color)
     new_color_pair = {id: new_id, foreground_color: foreground_color, background_color: background_color}
     @color_pair << new_color_pair
