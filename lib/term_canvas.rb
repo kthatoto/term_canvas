@@ -54,6 +54,12 @@ class TermCanvas
   def draw
   end
 
+  module Color
+    GREEN = [   0, 1000,    0]
+    BLUE  = [   0,    0, 1000]
+    RED   = [1000,    0,    0]
+  end
+
   private
   def close
     @win.close
