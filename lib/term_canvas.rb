@@ -29,6 +29,11 @@ class TermCanvas
     @win.clear
   end
 
+  def object_clear
+    @texts = []
+    @rects = []
+  end
+
   def centerx
     @win.width / 2 + @win.width % 2
   end
@@ -51,6 +56,16 @@ class TermCanvas
     }
   end
 
+  def update
+    draw
+    @win.refresh
+  end
+
+  module Color
+    include BaseScreen::Color
+  end
+
+  private
   def draw
     @texts.each do |text|
       color_pair = BaseScreen.instance.find_or_create_color_pair(
@@ -64,11 +79,6 @@ class TermCanvas
     end
   end
 
-  module Color
-    include BaseScreen::Color
-  end
-
-  private
   def close
     @win.close
   end
