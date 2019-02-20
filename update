@@ -1,0 +1,2 @@
+#!/bin/bash
+gem specific_install -l 'kthatoto/term_canvas'
