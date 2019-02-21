@@ -1,7 +1,7 @@
 require 'term_canvas'
 
 Color = TermCanvas::Color
-main_field = TermCanvas.new(x: 0, y: 0, w: 50, h: 30)
+field = TermCanvas.new(x: 0, y: 0, w: 50, h: 30)
 
 text_pos = {y: 0, x: 0}
 loop do
@@ -18,13 +18,16 @@ loop do
   when ?q
     break
   end
-  main_field.clear
-  main_field.object_clear
-  main_field.text(
+  field.clear
+  field.rect(
+    x: 0, y: 0, width: field.width, height: field.height,
+    background_color: Color::Black
+  )
+  field.text(
     x: text_pos[:x], y: text_pos[:y], body: "test",
     background_color: Color::RED, foreground_color: Color::BLUE
   )
-  main_field.update
+  field.update
   sleep 0.01
 end
 TermCanvas.close_all

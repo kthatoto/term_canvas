@@ -3,6 +3,7 @@ require 'term_canvas/base_screen'
 class TermCanvas
   VERSION = "0.1.0"
 
+  attr_accessor :width, :height
   def initialize(x:, y:, w:, h:)
     BaseScreen.instance
     @win = Curses::Window.new(h, w, y, x)
