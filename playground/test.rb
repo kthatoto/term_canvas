@@ -21,7 +21,7 @@ loop do
   field.clear
   field.rect(
     x: 0, y: 0, width: field.width, height: field.height,
-    background_color: Color::Black
+    background_color: Color::BLUE
   )
   field.text(
     x: text_pos[:x], y: text_pos[:y], body: "test",

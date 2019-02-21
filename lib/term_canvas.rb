@@ -66,6 +66,7 @@ class TermCanvas
   private
   def draw
     @rects.each do |rect|
+      `echo #{pp rect} >> log.txt`
       color_pair = BaseScreen.instance.find_or_create_color_pair(
         background_color: rect[:background_color]
       )
