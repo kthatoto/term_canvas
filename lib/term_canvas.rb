@@ -27,9 +27,6 @@ class TermCanvas
 
   def clear
     @win.clear
-  end
-
-  def object_clear
     @texts = []
     @rects = []
   end
@@ -67,6 +64,15 @@ class TermCanvas
 
   private
   def draw
+    @rects.each do |rect|
+      color_pair = BaseScreen.instance.find_or_create_color_pair(
+        background_color: rect[:background_color]
+      )
+      @win.setpos(rect[:y], rect[:x])
+      @win.attron(color_pair[:id])
+      @win.addstr(rect[:body])
+      @win.attroff(color_pair[:id])
+    end
     @texts.each do |text|
       color_pair = BaseScreen.instance.find_or_create_color_pair(
         foreground_color: text[:foreground_color],
