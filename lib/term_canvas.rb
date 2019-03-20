@@ -100,15 +100,15 @@ class TermCanvas
     #   @win.attroff(color_pair[:id])
     # end
     @texts.each do |text|
-      color_pair = BaseScreen.instance.find_or_create_color_pair(
+      cp_id = BaseScreen.instance.find_or_create_color_pair(
         foreground_color: text[:foreground_color],
         background_color: text[:background_color]
-      )
-      `echo #{color_pair} >> log.txt`
+      )[:id]
+      color_pair = CUrses.color_pair(cp_id)
       @win.setpos(text[:y], text[:x])
-      @win.attron(color_pair[:id])
+      @win.attron(color_pair)
       @win.addstr(text[:body])
-      @win.attroff(color_pair[:id])
+      @win.attroff(color_pair)
     end
   end
 
