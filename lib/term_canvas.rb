@@ -29,7 +29,7 @@ class TermCanvas
     end
 
     # Close all windows.
-    def close_all
+    def close_all_windows
       ObjectSpace.each_object(self) { |tc| tc.close }
       BaseScreen.instance.close
     end

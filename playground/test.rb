@@ -27,4 +27,4 @@ loop do
   field.update
   sleep 0.01
 end
-TermCanvas.close_all
+TermCanvas.close_all_windows
