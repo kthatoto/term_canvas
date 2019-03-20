@@ -44,7 +44,7 @@ class BaseScreen
         break
       end
     end
-    return response_color || create_color(r: r, g: g, b: b)
+    return response_color || create_color(r: color[:r], g: color[:g], b: color[:b])
   end
 
   def create_color(r:, g:, b:)

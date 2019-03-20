@@ -19,10 +19,6 @@ loop do
   end
 
   field.clear
-  field.rect(
-    x: 0, y: 0, width: field.width, height: field.height,
-    background_color: {r: 0, g: 800, b: 0}
-  )
   field.text(
     x: text_pos[:x], y: text_pos[:y], body: "test",
     background_color: {r: 800, g: 800, b: 0}, foreground_color: {r: 800, g: 200, b: 800}
