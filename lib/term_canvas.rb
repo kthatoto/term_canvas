@@ -28,10 +28,9 @@ class TermCanvas
       Curses.getch
     end
 
-    # Close all windows.
-    def close_all
-      ObjectSpace.each_object(self) { |tc| tc.close }
-      BaseScreen.instance.close
+    # Close.
+    def close
+      Curses.close_screen
     end
   end
 

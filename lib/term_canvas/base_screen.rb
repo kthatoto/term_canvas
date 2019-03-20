@@ -17,10 +17,6 @@ class BaseScreen
     end
   end
 
-  def close
-    Curses.close_screen
-  end
-
   def find_or_create_color_pair(foreground_color: nil, background_color:)
     response_color_pair = nil
     fc_id = find_or_create_color(foreground_color)[:id]

@@ -1,5 +1,4 @@
 require 'term_canvas'
-require 'curses'
 
 field = TermCanvas.new(x: 0, y: 0, w: 50, h: 30)
 
@@ -27,4 +26,4 @@ loop do
   field.update
   sleep 0.01
 end
-TermCanvas.close_all_windows
+TermCanvas.close
