@@ -1,4 +1,5 @@
 require 'term_canvas'
+require 'curses'
 
 field = TermCanvas.new(x: 0, y: 0, w: 50, h: 30)
 
@@ -24,6 +25,6 @@ loop do
     background_color: {r: 800, g: 800, b: 0}, foreground_color: {r: 800, g: 200, b: 800}
   )
   field.update
-  sleep 0.01
+  sleep 3
 end
 TermCanvas.close_all

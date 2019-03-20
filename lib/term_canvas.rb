@@ -104,6 +104,7 @@ class TermCanvas
         foreground_color: text[:foreground_color],
         background_color: text[:background_color]
       )
+      `echo #{color_pair} >> log.txt`
       @win.setpos(text[:y], text[:x])
       @win.attron(color_pair[:id])
       @win.addstr(text[:body])
