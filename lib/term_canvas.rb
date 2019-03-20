@@ -75,7 +75,6 @@ class TermCanvas
       @win.attroff(color_pair[:id])
     end
     @texts.each do |text|
-      `echo '#{pp text}' >> log.txt`
       color_pair = BaseScreen.instance.find_or_create_color_pair(
         foreground_color: text[:foreground_color],
         background_color: text[:background_color]
