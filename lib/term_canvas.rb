@@ -29,7 +29,7 @@ class TermCanvas
     end
 
     # Close all windows.
-    def close_all_windows
+    def close_all
       ObjectSpace.each_object(self) { |tc| tc.close }
       BaseScreen.instance.close
     end
@@ -88,6 +88,10 @@ class TermCanvas
     @win.refresh
   end
 
+  def close
+    @win.close
+  end
+
   private
   def draw
     # @rects.each do |rect|
@@ -110,9 +114,5 @@ class TermCanvas
       @win.addstr(text[:body])
       @win.attroff(color_pair)
     end
-  end
-
-  def close
-    @win.close
   end
 end
