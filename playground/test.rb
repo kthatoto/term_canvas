@@ -25,6 +25,6 @@ loop do
     background_color: {r: 800, g: 800, b: 0}, foreground_color: {r: 800, g: 200, b: 800}
   )
   field.update
-  sleep 3
+  sleep 0.01
 end
 TermCanvas.close_all

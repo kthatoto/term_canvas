@@ -104,7 +104,7 @@ class TermCanvas
         foreground_color: text[:foreground_color],
         background_color: text[:background_color]
       )[:id]
-      color_pair = CUrses.color_pair(cp_id)
+      color_pair = Curses.color_pair(cp_id)
       @win.setpos(text[:y], text[:x])
       @win.attron(color_pair)
       @win.addstr(text[:body])
