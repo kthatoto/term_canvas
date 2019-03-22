@@ -21,9 +21,9 @@ loop do
   field.clear
   field.text(
     x: text_pos[:x], y: text_pos[:y], body: "test",
-    background_color: {r: 800, g: 800, b: 0}, foreground_color: {r: 800, g: 200, b: 800}
+    background_color: {r: 0, g: 400, b: 800}, foreground_color: {r: 800, g: 200, b: 200}
   )
   field.update
-  sleep 0.01
+  sleep 0.05
 end
 TermCanvas.close

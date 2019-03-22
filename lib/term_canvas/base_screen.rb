@@ -11,10 +11,8 @@ class BaseScreen
     Curses.start_color
     Curses.use_default_colors
     @color_pairs = [{id: 0, fc_id: 1, bc_id: 0}]
-    @colors = [{id: 0, r: 0, g: 0, b: 0}, {id: 1, r: 1000, g: 1000, b: 1000}]
-    @colors.each do |color|
-      Curses.init_color(color[:id], color[:r], color[:g], color[:b])
-    end
+    @colors = []
+    @color_id_offset = 16
   end
 
   def find_or_create_color_pair(foreground_color: nil, background_color:)
@@ -44,7 +42,7 @@ class BaseScreen
   end
 
   def create_color(r:, g:, b:)
-    new_color_id = @colors.count
+    new_color_id = @colors.count + @color_id_offset
     Curses.init_color(new_color_id, r, g, b)
     new_color = {id: new_color_id, r: r, g: g, b: b}
     @colors << new_color

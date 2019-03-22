@@ -6,7 +6,7 @@ Curses.curs_set(0)
 Curses.start_color
 Curses.use_default_colors
 255.times do |i|
-  Curses.init_pair(i, i, 0)
+  Curses.init_pair(i, 0, i)
 end
 win = Curses::Window.new(Curses.lines, Curses.cols, 0, 0)
 loop do
