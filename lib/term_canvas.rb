@@ -16,8 +16,8 @@ class TermCanvas
     @y = y
     @width = w
     @height = h
-    @texts = []
-    @rects = []
+    @objects = []
+    @object_index = 0
   end
 
   class << self
@@ -37,8 +37,8 @@ class TermCanvas
   # Clear objects and remove from the window.
   def clear
     @win.clear
-    @texts = []
-    @rects = []
+    @objects = []
+    @object_index = 0
   end
 
   # @return [Integer] Horizontal center of the window.
@@ -52,33 +52,20 @@ class TermCanvas
   end
 
   # Add text object to the window but not display.
-  # @param x [Integer] Horizontal position of the object.
-  # @param y [Integer] Vertical position of the object.
-  # @param body [String] Text body.
-  # @param foreground_color [Hash] :r Red element of color of text.
-  # @param foreground_color [Hash] :g Green element of color of text.
-  # @param foreground_color [Hash] :b Blue element of color of text.
-  # @param background_color [Hash] :r Red element of color of background.
-  # @param background_color [Hash] :g Green element of color of background.
-  # @param background_color [Hash] :b Blue element of color of background.
-  def text(x:, y:, body:, foreground_color:, background_color:)
-    @texts << {
-      x: x, y: y, body: body,
-      background_color: background_color, foreground_color: foreground_color,
-    }
+  # @param object [Text] Text instance
+  def text(object)
+    raise 'The argument must be Text::TermCanvas' if Text::TermCanvas !== object
+    object.set_index(@object_index)
+    @objects << object
+    @object_index += 1
   end
 
   # Add rect object to the window but not display.
-  # @param x [Integer] Horizontal position of the object.
-  # @param y [Integer] Vertical position of the object.
-  # @param background_color [Hash] :r Red element of color of background.
-  # @param background_color [Hash] :g Green element of color of background.
-  # @param background_color [Hash] :b Blue element of color of background.
-  def rect(x:, y:, width:, height:, background_color:)
-    @rects << {
-      x: x, y: y, width: width, height: height,
-      background_color: background_color,
-    }
+  def rect(object)
+    raise 'The argument must be Rect::TermCanvas' if Rect::TermCanvas !== object
+    object.set_index(@object_index)
+    @objects << object
+    @object_index += 1
   end
 
   # Display objects that are added into this instance.
@@ -94,25 +81,8 @@ class TermCanvas
   private
 
     def draw
-      # @rects.each do |rect|
-      #   color_pair = BaseScreen.instance.find_or_create_color_pair(
-      #     background_color: rect[:background_color]
-      #   )
-      #   @win.setpos(rect[:y], rect[:x])
-      #   @win.attron(color_pair[:id])
-      #   @win.addstr()
-      #   @win.attroff(color_pair[:id])
-      # end
-      @texts.each do |text|
-        cp_id = BaseScreen.instance.find_or_create_color_pair(
-          foreground_color: text[:foreground_color],
-          background_color: text[:background_color]
-        )[:id]
-        color_pair = Curses.color_pair(cp_id)
-        @win.setpos(text[:y], text[:x])
-        @win.attron(color_pair)
-        @win.addstr(text[:body])
-        @win.attroff(color_pair)
+      @objects.each do |object|
+        object.draw(@win)
       end
     end
 end
