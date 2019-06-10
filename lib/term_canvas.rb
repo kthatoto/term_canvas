@@ -57,7 +57,7 @@ class TermCanvas
   # Add text object to the window but not display.
   # @param object [Text] Text instance
   def text(object)
-    raise 'The argument must be Text::TermCanvas' if !(Text::TermCanvas === object)
+    raise 'The argument must be Text' if !(Text === object)
     object.set_index(@object_index)
     @objects << object
     @object_index += 1
@@ -65,7 +65,7 @@ class TermCanvas
 
   # Add rect object to the window but not display.
   def rect(object)
-    raise 'The argument must be Rect::TermCanvas' if !(Rect::TermCanvas === object)
+    raise 'The argument must be Rect' if !(Rect === object)
     object.set_index(@object_index)
     @objects << object
     @object_index += 1
