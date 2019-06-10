@@ -55,7 +55,7 @@ class BaseScreen
     def create_color(r:, g:, b:)
       new_color_id = @colors.count + @color_id_offset
       new_color = @color_struct.new(new_color_id, r, g, b)
-      `echo #{new_color} >> log`
+      `echo '#{new_color}' >> log.txt`
       Curses.init_color(*new_color)
       @colors << new_color
       return new_color
