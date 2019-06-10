@@ -81,6 +81,7 @@ class TermCanvas
   private
 
     def draw
+      puts object.count
       @objects.each do |object|
         object.draw(@win)
       end
