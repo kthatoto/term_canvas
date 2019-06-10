@@ -23,8 +23,10 @@ loop do
   #   x: text_pos[:x], y: text_pos[:y], body: "test",
   #   background_color: {r: 800, g: 800, b: 800}, foreground_color: {r: 200, g: 200, b: 200}
   # )
-  field.rect(
-    x: 0, y: 0, width: 10, height: 10, background_color: {r: 200, g: 800, b: 200}
+  rect =   field.rect(
+    Rect.new(
+      x: 0, y: 0, width: 10, height: 10, background_color: {r: 200, g: 800, b: 200}
+    )
   )
   field.update
   sleep 0.05

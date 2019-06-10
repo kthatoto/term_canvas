@@ -13,7 +13,7 @@ class BaseScreen
     @color_struct = Struct.new(:id, :r, :g, :b)
     @color_pair_struct = Struct.new(:id, :fc_id, :bc_id)
     @color_pairs = [@color_pair_struct.new(0, 1, 0)]
-    @colors = []
+    @colors = [@color_struct(0, 0, 0, 0)]
     @color_id_offset = 16
   end
 
