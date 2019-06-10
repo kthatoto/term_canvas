@@ -28,10 +28,10 @@ class BaseScreen
   def find_or_create_color_pair(foreground_color: nil, background_color:)
     response_color_pair = nil
     fc_id = find_or_create_color(
-      @color_struct.new(*foreground_color.values_at(*@color_struct.members))
+      @color_struct.new(*foreground_color&.values_at(*@color_struct.members))
     ).id
     bc_id = find_or_create_color(
-      @color_struct.new(*background_color.values_at(*@color_struct.members))
+      @color_struct.new(*background_color&.values_at(*@color_struct.members))
     ).id
     @color_pairs.each do |cp|
       if cp.fc_id == fc_id && cp.bc_id == bc_id
