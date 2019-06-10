@@ -1,4 +1,4 @@
-class Text::TermCanvas < Object::TermCanvas
+class Text < Object::TermCanvas
   attr_reader :foreground_color, :background_color
 
   # @param x [Integer] Horizontal position of the object.
