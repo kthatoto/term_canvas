@@ -28,7 +28,7 @@ class Rect < Object::TermCanvas
     win.attron(color_pair)
     @height.times do
       win.addstr(" " * @width)
-      win.setpos(win.cury + 1, win.curx)
+      win.setpos(win.cury + 1, @x)
     end
     win.attroff(color_pair)
   end
