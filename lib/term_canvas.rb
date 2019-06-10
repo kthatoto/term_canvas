@@ -81,7 +81,7 @@ class TermCanvas
     }
   end
 
-  # Display objects that are added into the instance.
+  # Display objects that are added into this instance.
   def update
     draw
     @win.refresh
@@ -92,26 +92,27 @@ class TermCanvas
   end
 
   private
-  def draw
-    # @rects.each do |rect|
-    #   color_pair = BaseScreen.instance.find_or_create_color_pair(
-    #     background_color: rect[:background_color]
-    #   )
-    #   @win.setpos(rect[:y], rect[:x])
-    #   @win.attron(color_pair[:id])
-    #   @win.addstr()
-    #   @win.attroff(color_pair[:id])
-    # end
-    @texts.each do |text|
-      cp_id = BaseScreen.instance.find_or_create_color_pair(
-        foreground_color: text[:foreground_color],
-        background_color: text[:background_color]
-      )[:id]
-      color_pair = Curses.color_pair(cp_id)
-      @win.setpos(text[:y], text[:x])
-      @win.attron(color_pair)
-      @win.addstr(text[:body])
-      @win.attroff(color_pair)
+
+    def draw
+      # @rects.each do |rect|
+      #   color_pair = BaseScreen.instance.find_or_create_color_pair(
+      #     background_color: rect[:background_color]
+      #   )
+      #   @win.setpos(rect[:y], rect[:x])
+      #   @win.attron(color_pair[:id])
+      #   @win.addstr()
+      #   @win.attroff(color_pair[:id])
+      # end
+      @texts.each do |text|
+        cp_id = BaseScreen.instance.find_or_create_color_pair(
+          foreground_color: text[:foreground_color],
+          background_color: text[:background_color]
+        )[:id]
+        color_pair = Curses.color_pair(cp_id)
+        @win.setpos(text[:y], text[:x])
+        @win.attron(color_pair)
+        @win.addstr(text[:body])
+        @win.attroff(color_pair)
+      end
     end
-  end
 end
