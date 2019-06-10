@@ -1,5 +1,8 @@
 require 'curses'
 require 'term_canvas/base_screen'
+require 'term_canvas/object'
+require 'term_canvas/text'
+require 'term_canvas/rect'
 class TermCanvas
   VERSION = "0.1.0"
 
