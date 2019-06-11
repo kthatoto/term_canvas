@@ -1,6 +1,6 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'term_canvas'
+require "term_canvas"
 
 Gem::Specification.new do |spec|
   spec.name          = "term_canvas"
@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["kthatoto@gmail.com"]
 
   spec.summary       = %q{Wrapper library for curses of ruby}
-  spec.description   = %q{Wrapper library for curses of ruby}
+  spec.description   = %q{Wrapper library for curses of ruby. You can handle colors easily.}
   spec.homepage      = "https://github.com/kthatoto/term_canvas"
   spec.license       = "MIT"
 
