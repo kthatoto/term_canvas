@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["kthatoto"]
   spec.email         = ["kthatoto@gmail.com"]
 
-  spec.summary       = %q{Curses wrapper library}
-  spec.description   = %q{Curses wrapper library}
+  spec.summary       = %q{Wrapper library for curses of ruby}
+  spec.description   = %q{Wrapper library for curses of ruby}
   spec.homepage      = "https://github.com/kthatoto/term_canvas"
   spec.license       = "MIT"
 
