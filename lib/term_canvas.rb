@@ -4,8 +4,6 @@ require 'term_canvas/object'
 require 'term_canvas/text'
 require 'term_canvas/rect'
 class TermCanvas
-  VERSION = "0.1.0"
-
   attr_accessor :width, :height
   # Create a convenient window.
   # @param x [Integer] Horizontal position of the window. From left to right.
