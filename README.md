@@ -1,6 +1,6 @@
 # TermCanvas
 Wrapper library for `curses` of ruby.
-You can handle colors easily.
+You can easily draw text on your terminal and handle colors easily.
 
 ## Installation
 
