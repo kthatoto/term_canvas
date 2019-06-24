@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    term_canvas (0.2.5)
+    term_canvas (0.2.6)
       curses
 
 GEM
