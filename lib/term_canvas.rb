@@ -11,7 +11,7 @@ class TermCanvas
   # @param w [Integer] Width of the window.
   # @param h [Integer] Height of the window.
   def initialize(x:, y:, w:, h:)
-    BaseScreen.instance
+    TermCanvas::BaseScreen.instance
     @win = Curses::Window.new(h, w, y, x)
     @x = x
     @y = y
@@ -55,7 +55,7 @@ class TermCanvas
   # Add text object to the window but not display.
   # @param object [Text] Text instance
   def text(object)
-    raise 'The argument must be Text' if !(Text === object)
+    raise 'The argument must be Text' if !(TermCanvas::Text === object)
     object.set_index(@object_index)
     @objects << object
     @object_index += 1
@@ -63,7 +63,7 @@ class TermCanvas
 
   # Add rect object to the window but not display.
   def rect(object)
-    raise 'The argument must be Rect' if !(Rect === object)
+    raise 'The argument must be Rect' if !(TermCanvas::Rect === object)
     object.set_index(@object_index)
     @objects << object
     @object_index += 1
