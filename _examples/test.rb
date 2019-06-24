@@ -22,7 +22,7 @@ loop do
   field.rect(
     TermCanvas::Rect.new(
       x: field.centerx, y: field.centery, width: 2, height: 1, background_color: {r: 200, b: 200, g: 800}
-    )
+    ).offset(x: -TermCanvas.width / 2, y: 0)
   )
   field.text(
     TermCanvas::Text.new(
