@@ -21,7 +21,7 @@ loop do
   field.clear
   field.rect(
     TermCanvas::Rect.new(
-      x: 0, y: 0, width: 10, height: 10, background_color: {r: 200, b: 200, g: 800}
+      x: field.centerx, y: field.centery, width: 2, height: 1, background_color: {r: 200, b: 200, g: 800}
     )
   )
   field.text(

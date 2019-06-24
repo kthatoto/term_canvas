@@ -54,12 +54,12 @@ module TermCanvas
 
     # @return [Integer] Horizontal center of the window.
     def centerx
-      @win.cols / 2 + @win.cols % 2
+      @width / 2 + @width % 2
     end
 
     # @return [Integer] Vertical center of the window.
     def centery
-      @win.lines / 2 + @win.lines % 2
+      @height / 2 + @height % 2
     end
 
     # Add text object to the window but not display.
