@@ -10,9 +10,18 @@ module TermCanvas
     # @param x [Integer] Offset of x
     # @param y [Integer] Offset of y
     # @return self
-    def offset(x: nil, y: nil)
+    def position_offset(x: nil, y: nil)
       @x += x if x
       @y += y if y
+      self
+    end
+
+    # @param x [Integer] New x
+    # @param y [Integer] New y
+    # @return self
+    def position_override(x: nil, y: nil)
+      @x = x if x
+      @y = y if y
       self
     end
   end
