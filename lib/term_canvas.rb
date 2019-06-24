@@ -17,6 +17,16 @@ module TermCanvas
     Curses.close_screen
   end
 
+  # @return [Integer] Width of this screen.
+  def self.width
+    Curses.cols
+  end
+
+  # @return [Integer] Height of this screen.
+  def self.height
+    Curses.lines
+  end
+
   class Canvas
     attr_accessor :width, :height
     # Create a convenient window.
@@ -44,12 +54,12 @@ module TermCanvas
 
     # @return [Integer] Horizontal center of the window.
     def centerx
-      @win.width / 2 + @win.width % 2
+      @win.cols / 2 + @win.cols % 2
     end
 
     # @return [Integer] Vertical center of the window.
     def centery
-      @win.height / 2 + @win.height % 2
+      @win.lines / 2 + @win.lines % 2
     end
 
     # Add text object to the window but not display.
