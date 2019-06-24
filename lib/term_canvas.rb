@@ -5,6 +5,18 @@ require 'term_canvas/text'
 require 'term_canvas/rect'
 
 module TermCanvas
+  # Get key input.
+  # @return [String] Inputted key.
+  # @return [nil]
+  def self.gets
+    Curses.getch
+  end
+
+  # Close.
+  def self.close
+    Curses.close_screen
+  end
+
   class Canvas
     attr_accessor :width, :height
     # Create a convenient window.
@@ -21,20 +33,6 @@ module TermCanvas
       @height = h
       @objects = []
       @object_index = 0
-    end
-
-    class << self
-      # Get key input.
-      # @return [String] Inputted key.
-      # @return [nil]
-      def gets
-        Curses.getch
-      end
-
-      # Close.
-      def close
-        Curses.close_screen
-      end
     end
 
     # Clear objects and remove from the window.
