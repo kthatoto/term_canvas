@@ -19,11 +19,13 @@ module TermCanvas
 
   # @return [Integer] Width of this screen.
   def self.width
+    TermCanvas::BaseScreen.instance
     Curses.cols
   end
 
   # @return [Integer] Height of this screen.
   def self.height
+    TermCanvas::BaseScreen.instance
     Curses.lines
   end
 

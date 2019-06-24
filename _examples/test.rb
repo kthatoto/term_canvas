@@ -1,6 +1,6 @@
 require 'term_canvas'
 
-field = TermCanvas::Canvas.new(x: 0, y: 0, w: 50, h: 30)
+field = TermCanvas::Canvas.new(x: 0, y: 0, w: TermCanvas.width, h: TermCanvas.height)
 
 text_pos = {y: 0, x: 0}
 loop do
