@@ -87,6 +87,20 @@ module TermCanvas
       @object_index += 1
     end
 
+    # @param color [Hash]
+    #   :r Red element of color of background.
+    #   :g Green element of color of background.
+    #   :b Blue element of color of background.
+    def background(color)
+      object = TermCanvas::Rect.new(
+        x: 0, y: 0, width: @width - 1, height: @height,
+        background_color: color,
+      )
+      object.set_index(@object_index)
+      @objects << object
+      @object_index += 1
+    end
+
     # Update objects to the virtual screen.
     def update
       draw
