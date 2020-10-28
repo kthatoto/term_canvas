@@ -29,6 +29,12 @@ module TermCanvas
     Curses.lines
   end
 
+  # Update objects to physical screen.
+  def self.update
+    TermCanvas::BaseScreen.instance
+    Curses.doupdate
+  end
+
   class Canvas
     attr_accessor :width, :height
     # Create a convenient window.
@@ -81,10 +87,10 @@ module TermCanvas
       @object_index += 1
     end
 
-    # Display objects that are added into this instance.
+    # Update objects to the virtual screen.
     def update
       draw
-      @win.refresh
+      @win.noutrefresh
     end
 
     def close
