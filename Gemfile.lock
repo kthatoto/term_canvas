@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    term_canvas (0.2.9)
+    term_canvas (0.2.10)
       curses
 
 GEM
@@ -34,4 +34,4 @@ DEPENDENCIES
   term_canvas!
 
 BUNDLED WITH
-   2.0.1
+   2.1.4
